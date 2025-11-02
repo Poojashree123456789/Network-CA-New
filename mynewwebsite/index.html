@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Wildlife & Greeneries</title>
+    <style>
+        :root {
+            --bg: #f2fbf4;
+            --card: #ffffff;
+            --accent: #2e7d32;
+            --muted: #6b7280;
+            --glass: rgba(255, 255, 255, 0.6);
+            --shadow: 0 6px 18px rgba(18, 20, 24, 0.08);
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, var(--bg), #eaf8ee 60%);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 32px auto;
+            padding: 0 18px;
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            align-items: center;
+            background: linear-gradient(90deg, rgba(46, 125, 50, 0.06), rgba(0, 0, 0, 0.01));
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .hero-inner {
+            display: flex;
+            gap: 20px;
+            align-items: center
+        }
+
+        .hero-text h1 {
+            margin: 0;
+            font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+            line-height: 1.05
+        }
+
+        .hero-text p {
+            color: var(--muted);
+            margin: 10px 0 0
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent), #1b5e20);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 6px 16px rgba(46, 125, 50, 0.18);
+        }
+
+        /* Photo credit strip */
+        .hero-photo {
+            border-radius: 12px;
+            overflow: hidden;
+            min-width: 220px;
+            height: 140px;
+            flex: 0 0 42%;
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow);
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: var(--shadow);
+            transition: transform .22s ease, box-shadow .22s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(8, 15, 20, 0.08);
+        }
+
+        .thumb {
+            height: 160px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            box-shadow: inset 0 -30px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .title {
+            font-weight: 700
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.92rem
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 6px 8px;
+            border-radius: 999px;
+            background: var(--glass);
+            border: 1px solid rgba(46, 125, 50, 0.06);
+        }
+
+        /* Footer */
+        footer {
+            margin: 28px 0 60px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem
+        }
+
+        /* Responsive tweaks */
+        @media(min-width:900px) {
+            .hero {
+                grid-template-columns: 1fr 360px
+            }
+
+            .hero-inner {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .hero-photo {
+                height: 220px;
+                min-width: 0;
+                flex: 1
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <section class="hero" aria-label="Hero — Wildlife & Greeneries">
+            <div style="padding:6px 6px 6px 12px">
+                <div class="hero-inner">
+                    <div class="hero-text">
+                        <h1>Wildlife & Greeneries</h1>
+                        <p>Explore beautiful animals and lush green habitats. This lightweight demo highlights photos,
+                            short descriptions, and quick conservation tips.</p>
+                        <a class="cta" href="#gallery">See gallery</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- hero photo (replace URL with your image) -->
+            <div class="hero-photo"
+                style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80');"
+                role="img" aria-label="Green forest"></div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" style="margin-top:22px">
+            <div class="grid">
+                <article class="card" aria-labelledby="t1">
+                    <div class="thumb"
+                        style="background-image:url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1200&q=80')"
+                        role="img" aria-label="Elephant grazing"></div>
+                    <div>
+                        <div class="meta">
+                            <div>
+                                <div id="t1" class="title">Gentle Giants</div>
+                                <div class="subtitle">African Elephant — savanna grazer</div>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Herbivore</span><span class="tag">Endangered</span>
+                            </div>
+                        </div>
+                        <p style="margin:8px 0 0;color:var(--muted);font-size:0.95rem">Elephants shape ecosystems by
+                            spreading seeds and creating water holes used by other animals.</p>
+                    </div>
+                </article>
+
+                <article class="card" aria-labelledby="t2">
+                    <div class="thumb"
+                        style="background-image:url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&q=80')"
+                        role="img" aria-label="Tiger portrait"></div>
+                    <div>
+                        <div class="meta">
+                            <div>
+                                <div id="t2" class="title">Striped Hunter</div>
+                                <div class="subtitle">Bengal Tiger — forest predator</div>
+                            </div>
+                            <div class="tags"><span class="tag">Carnivore</span><span class="tag">Conservation</span>
+                            </div>
+                        </div>
+                        <p style="margin:8px 0 0;color:var(--muted);font-size:0.95rem">Top predators keep prey
+                            populations healthy and balanced — protecting them protects whole forests.</p>
+                    </div>
+                </article>
+
+                <article class="card" aria-labelledby="t3">
+                    <div class="thumb"
+                        style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')"
+                        role="img" aria-label="Colorful bird on branch"></div>
+                    <div>
+                        <div class="meta">
+                            <div>
+                                <div id="t3" class="title">Forest Song</div>
+                                <div class="subtitle">Songbird — pollinator & seed disperser</div>
+                            </div>
+                            <div class="tags"><span class="tag">Pollinator</span></div>
+                        </div>
+                        <p style="margin:8px 0 0;color:var(--muted);font-size:0.95rem">Birds add color and life to
+                            forests — and many species are excellent pollinators and seed carriers.</p>
+                    </div>
+                </article>
+
+                <article class="card" aria-labelledby="t4">
+                    <div class="thumb"
+                        style="background-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80')"
+                        role="img" aria-label="Lush green valley"></div>
+                    <div>
+                        <div class="meta">
+                            <div>
+                                <div id="t4" class="title">Verdant Valleys</div>
+                                <div class="subtitle">Restorative green spaces</div>
+                            </div>
+                            <div class="tags"><span class="tag">Carbon sink</span><span class="tag">Habitat</span></div>
+                        </div>
+                        <p style="margin:8px 0 0;color:var(--muted);font-size:0.95rem">Healthy greenery cools cities,
+                            stores carbon, and gives wildlife the corridors they need to thrive.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Quick tips -->
+        <section style="margin-top:20px">
+            <div class="card" style="display:flex;gap:16px;align-items:center;flex-direction:row;flex-wrap:wrap;">
+                <div style="flex:1;min-width:220px">
+                    <h3 style="margin:0 0 8px">Simple conservation tips</h3>
+                    <ul style="margin:0;color:var(--muted);padding-left:18px">
+                        <li>Plant native species to support local pollinators.</li>
+                        <li>Avoid single-use plastics — they harm animals.</li>
+                        <li>Support protected areas and ethical wildlife organisations.</li>
+                    </ul>
+                </div>
+                <div style="min-width:180px;text-align:center;color:var(--muted);font-size:0.9rem">
+                    <strong style="display:block;color:var(--accent);font-size:1.1rem">Tip:</strong>
+                    Even small gardens help — balcony planters or a tree make a difference.
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Made with ❤️ for wildlife. Photos from Unsplash (replace freely with your own).
+        </footer>
+    </main>
+</body>
+
+</html>
