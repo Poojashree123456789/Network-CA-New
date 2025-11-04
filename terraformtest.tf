@@ -38,9 +38,14 @@ resource "aws_security_group" "pooja_security_group" {
 
 }
 
+variable "key_name" {
+  type    = string
+  default = "pooja_terraform_key"
+}
+
 
 resource "aws_key_pair" "pooja_terraform_key" {
-  key_name   = "pooja_terraform_key"
+  key_name   = var.key_name
   public_key = file("id_pooja.pub")
 }
 
