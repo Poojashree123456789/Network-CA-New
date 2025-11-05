@@ -302,12 +302,3 @@ docker-compose up -d --build
 
 - Project demonstrates Infrastructure as Code (IaC) best practices
 - Built for educational purposes (Network CA assignment)
-
-## 📄 License
-
-This project is for educational purposes. Feel free to modify and use as needed.
-
----
-
-**Last Updated**: November 2025
-
