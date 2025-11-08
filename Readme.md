@@ -298,3 +298,8 @@ docker-compose up -d --build
 - The website is completely static and runs in a lightweight Nginx Alpine container
 - Ansible playbook uses `ansible_python_interpreter: /usr/bin/python3.8` for compatibility
 
+
+
+- Project demonstrates Infrastructure as Code (IaC) best practices
+
+
