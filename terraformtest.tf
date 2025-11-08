@@ -58,9 +58,20 @@ resource "aws_instance" "dbs_server" {
   tags = {
     Name = "DBS_Server"
   }
+
+  # CI/CD
+
   provisioner "local-exec" {
     command = "sleep 30 && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i '${self.public_ip},' -u ec2-user --private-key id_pooja apply.yml"
   }
+
+  # MANUAL PUSH
+
+
+  # provisioner "local-exec" {
+  #   command = "sleep 30 && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i '${self.public_ip},' -u ec2-user --private-key ~/.ssh/id_pooja apply.yml"
+  # }
+
 }
 
 output "instance_public_ip" {
