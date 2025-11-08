@@ -225,47 +225,6 @@ Type `yes` when prompted. This will:
 - Delete the security group
 - Remove the SSH key pair from AWS
 
-## 🔒 Security Considerations
-
-### Current Security Issues
-
-⚠️ **The following configurations are NOT production-ready**:
-
-1. **SSH Key Exposure**: The private key (`id_pooja`) is in the repository
-   - **Fix**: Store keys securely, use AWS Secrets Manager or SSH agent forwarding
-
-2. **Open SSH Access**: Security group allows SSH from anywhere (`0.0.0.0/0`)
-   - **Fix**: Restrict to specific IP addresses or use AWS Systems Manager Session Manager
-
-3. **No HTTPS**: Website runs on HTTP only
-   - **Fix**: Configure SSL/TLS certificates using AWS Certificate Manager and Let's Encrypt
-
-4. **Default VPC**: Uses default VPC without network segmentation
-   - **Fix**: Create custom VPC with public/private subnets
-
-5. **Root Privileges**: Ansible uses `become: yes` for all tasks
-   - **Fix**: Use principle of least privilege
-
-### Recommended Improvements
-
-```hcl
-# Example: Restrict SSH access to your IP only
-ingress {
-  from_port   = 22
-  to_port     = 22
-  protocol    = "tcp"
-  cidr_blocks = ["YOUR_IP_ADDRESS/32"]  # Replace with your IP
-}
-```
-
-## 🛠️ Troubleshooting
-
-### Issue: Ansible connection fails
-
-**Solution**: Wait 30-60 seconds for EC2 instance to fully boot, then run:
-```bash
-terraform apply
-```
 
 ### Issue: Website not accessible
 
